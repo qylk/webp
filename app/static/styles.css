@@ -1,0 +1,81 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background: url(img/raspberry_pi_logo.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 75%;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.navbar .logo {
+    background: url(img/raspberry_pi_logo.svg);
+    background-repeat: no-repeat;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+:-webkit-full-screen video {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    margin-bottom: 0px;
+    padding-bottom: 42px; /* Height of the footer */
+    padding-top: 60px;
+}
+
+#disks h3 {
+    margin: 0 0 12px;
+}
+
+#movies video {
+    margin-top: 1.8em;
+    background: #000;
+}
+
+#movies #video-controls > div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#movies .progress {
+    cursor: ew-resize;
+}
+
+#movies slider-volume .progress {
+    margin: 6px 0 0;
+}
+
+#movies .progress #duration {
+    pointer-events: none;
+    margin-right: 5px
+}
+
+#movies #video-remote .col-xs-1 {
+    padding: 0;
+}
+
+#movies select-subtitles .dropdown {
+    display: inline-block;
+}
+
+#footer {
+    border-top: 1px #adadad solid;
+    padding-top: 4px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 42px;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}

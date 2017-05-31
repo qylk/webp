@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+<script type="text/javascript">
+var socketNamespace = "{{ url_for('movies.player') }}"
+var subtitleProxy = "{{ url_for('movies.subtitle_proxy') }}"
+</script>
+<script type="text/javascript" src="{{ url_for("static", filename="player.js") }}"></script>
+{% endblock %}
+
+{% block contents %}
+<div id="movies">
+    <div id="video-container">
+        <video id="player" width="100%"></video>
+    </div>
+    {% include 'movies/player-controls.html' %}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block header %}
+<script type="text/javascript" src="{{ url_for("static", filename="movies.js") }}"></script>
+<script type="text/javascript">
+    var moviesUrl = "{{ config['MOVIES_URL'] }}"
+</script>
+{% endblock %}
+
+{% block contents %}
+
+<div id="movies">
+    <span class="float-right">
+        <a class="btn btn-default" href="{{ url_for(".player")}}"><i class="glyphicon glyphicon-film"></i> {{ _("Video Player") }}</a>
+        <a class="btn btn-default" href="{{ url_for(".control")}}"><i class="glyphicon glyphicon-phone"></i> {{ _("Remote Control") }}</a>
+    </span>
+
+    <div id="video-container">
+        <video id="player" width="100%" controls></video>
+    </div>
+
+    {% include "movies/list.html" %}
+
+</div>
+
+{% endblock %}

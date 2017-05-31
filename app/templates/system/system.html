@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block header %}
+<script type="text/javascript">
+    var refreshTarget = "#info"
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='refresh.js') }}"></script>
+{% endblock %}
+
+{% block contents %}
+<h2>System</h2>
+<p>
+    <a class="btn btn-danger btn-lg" href="{{ url_for('system.shutdown') }}">
+        <span class="glyphicon glyphicon-off"></span>
+        Shutdown
+    </a>
+    <a class="btn btn-danger btn-lg" href="{{ url_for('system.reboot') }}">
+        <span class="glyphicon glyphicon-refresh"></span>
+        Reboot
+    </a>
+</p>
+<h3>System Information</h3>
+<p id="info">
+    Uptime: {{uptime}}<br>
+    <span title="{{ ('1 min, 5 min, 15 min') }}">
+        {% set loads = load|join(", ") %}
+        Load Average: {{loads}}
+    </span>
+    <br>
+    CPU Temp:{{temp}}
+    <br>
+    {% set recv, sent = (net.bytes_recv|filesizeformat, net.bytes_sent|filesizeformat) %}
+    Network: {{sent}} sent, {{recv}} received
+    <br>
+    {% set used, total = ( (memory.total - memory.available)|filesizeformat, memory.total|filesizeformat) %}
+    Memory: {{used}} of {{total}} used {{memory.percent}}%<br>
+    {% set used, total = ( (swap.total - swap.free)|filesizeformat, swap.total|filesizeformat ) %}
+    Swap: {{used}} of {{total}} used {{swap.percent}}%<br>
+</p>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block header %}
+<script type="text/javascript">
+var socketNamespace = "{{ url_for('movies.player') }}"
+</script>
+<script type="text/javascript" src="{{ url_for("static", filename="control.js") }}"></script>
+{% endblock %}
+
+{% block contents %}
+<div id="movies">
+    <h3>{{ _("Remote Control") }}</h3>
+    {% include 'movies/player-controls.html' %}
+
+    {% include "movies/list.html" %}
+</div>
+{% endblock %}
