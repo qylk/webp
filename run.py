@@ -6,4 +6,4 @@ app = create_app()
 app.jinja_env.add_extension('jinja2.ext.i18n')
 app.jinja_env.install_null_translations(newstyle=True)
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
