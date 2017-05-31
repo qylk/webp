@@ -12,7 +12,7 @@ mod = Blueprint('system', __name__)
 @mod.route('/info')
 def get_system_info():
     uptime = datetime.now() - datetime.fromtimestamp(psutil.boot_time())
-    temp = os.popen('vcgencmd measure_temp').readline().replace("temp=", "")
+    temp = os.popen('vcgencmd measure_temp').readline().replace("temp=", "").replace('\'C\n', '')
     mem = psutil.virtual_memory()
     net = psutil.net_io_counters()
     swap = psutil.swap_memory()
